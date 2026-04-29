@@ -1,10 +1,14 @@
-pipeline{
-  agent any
-stages {
-  stage ('checkout') {
-}
-}
-  stage('Install Dependencies') {
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/mushrafaallii-code/summa.git'
+            }
+        }
+
+        stage('Install Dependencies') {
             steps {
                 sh 'npm install'
             }
@@ -15,4 +19,5 @@ stages {
                 sh 'node app.js'
             }
         }
+    }
 }
